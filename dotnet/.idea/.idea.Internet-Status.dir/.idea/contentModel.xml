@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\dev\projects\Internet-Status\dotnet" t="IncludeRecursive">
+      <e p=".dockerignore" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="docker-compose.debug.yml" t="Include" />
+      <e p="docker-compose.yml" t="Include" />
+      <e p="Dockerfile" t="Include" />
+      <e p="Internet-Status.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="Internet-Status.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="PingHelper.cs" t="Include" />
+      <e p="Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\tomch\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\tomch\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\tomch\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\tomch\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+  </component>
+</project>
