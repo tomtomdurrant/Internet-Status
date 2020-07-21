@@ -371,4 +371,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-/dotnet/internet-stats.txt
+dotnet/internet-stats.txt
