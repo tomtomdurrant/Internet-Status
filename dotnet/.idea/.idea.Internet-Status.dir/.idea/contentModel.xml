@@ -3,10 +3,12 @@
   <component name="ContentModelStore">
     <e p="C:\dev\projects\Internet-Status\dotnet" t="IncludeRecursive">
       <e p=".dockerignore" t="Include" />
+      <e p="2020-07-22.txt" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="docker-compose.debug.yml" t="Include" />
       <e p="docker-compose.yml" t="Include" />
       <e p="Dockerfile" t="Include" />
+      <e p="internet-stats.txt" t="Include" />
       <e p="Internet-Status.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">

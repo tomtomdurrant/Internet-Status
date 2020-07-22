@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net.NetworkInformation;
 using System.Timers;
 
@@ -9,6 +10,17 @@ namespace Internet_Status
 {
     internal class PingHelper
     {
+        static Dictionary<string, string> ipAddresses = new Dictionary<string, string>()
+        {
+            {"Google-A", "8.8.8.8"},
+            {"Google-B", "8.8.4.4"},
+            {"Cloudflare", "1.1.1.1"},
+            {"Virgin Manchester", "82.25.178.109"},
+            {"VirginDNS", "194.168.4.100"}
+        };
+
+        private static Random _random;
+
         private const string InternetStatsFile = "internet-stats.txt";
         public static DateTime StartedPing { get; private set; }
         public static DateTime CompletedPing { get; private set; }
@@ -18,6 +30,7 @@ namespace Internet_Status
         {
             ListOfStatus = new List<string>();
             ListOfInternetUp = new List<bool>();
+            _random = new Random();
         }
 
         internal static void DoThePing(object state, ElapsedEventArgs e)
@@ -28,11 +41,17 @@ namespace Internet_Status
 
             StartedPing = DateTime.Now;
 
-            pingSender.SendAsync("8.8.8.8", 120, null);
+            var number = _random.Next(0, ipAddresses.Count);
+
+            pingSender.SendAsync(ipAddresses.Values.ElementAt(number), 120, null);
         }
 
         private static void PingCompletedCallback(object sender, PingCompletedEventArgs e)
         {
+            var ip = e.Reply.Address.ToString();
+            var name = ipAddresses.FirstOrDefault(x => x.Value == ip).Key;
+            
+            Console.WriteLine($"Pinging {name} - {ip}");
             CompletedPing = DateTime.Now;
 
             var timeTaken = CompletedPing - StartedPing;
@@ -80,9 +99,7 @@ namespace Internet_Status
                 using var file = new StreamWriter($"{today}.txt", true);
                 file.WriteLine($"Internet up from {DateTime.Now - TimeSpan.FromHours(1)} until {DateTime.Now}");
             }
-            
-            
-                
+
             ListOfStatus.Clear();
             ListOfInternetUp.Clear();
         }
