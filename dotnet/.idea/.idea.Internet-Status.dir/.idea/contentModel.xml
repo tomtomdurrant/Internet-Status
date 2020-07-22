@@ -5,6 +5,7 @@
       <e p=".dockerignore" t="Include" />
       <e p="2020-07-22.txt" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
+      <e p="Constants.cs" t="Include" />
       <e p="docker-compose.debug.yml" t="Include" />
       <e p="docker-compose.yml" t="Include" />
       <e p="Dockerfile" t="Include" />

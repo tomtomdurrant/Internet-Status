@@ -10,15 +10,12 @@ namespace Internet_Status
 {
     class Program
     {
-        private const int TwoMinutes = 120_000; // 2 minutes
-        private const int OneHour = 3_600_000; // 1 hour
-
         static void Main(string[] args)
         {
             Console.WriteLine("Ping a big site to test internet");
             var pingHelper = new PingHelper();
-            var pingTimer = SetUpTimer(PingHelper.DoThePing, TwoMinutes);
-            var summaryTimer = SetUpTimer(PingHelper.PrintToTxt, OneHour);
+            var pingTimer = SetUpTimer(PingHelper.DoThePing, 60000);
+            var summaryTimer = SetUpTimer(PingHelper.PrintToTxt, Constants.OneHour);
 
             Console.ReadLine();
         }
