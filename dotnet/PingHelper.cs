@@ -43,7 +43,7 @@ namespace Internet_Status
 
             var number = _random.Next(0, ipAddresses.Count);
 
-            pingSender.SendAsync(ipAddresses.Values.ElementAt(number), 120, null);
+            pingSender.SendAsync("8.8.8.8", 120, null);
         }
 
         private static void PingCompletedCallback(object sender, PingCompletedEventArgs e)
@@ -60,7 +60,7 @@ namespace Internet_Status
             {
                 Console.WriteLine("Ping cancelled");
             }
-            else if (e.Error != null)
+            else if (e.Error != null || e.Reply.Address.ToString() == "0.0.0.0")
             {
                 Console.WriteLine($"It failed at {CompletedPing}");
                 using var file = new StreamWriter(InternetStatsFile, true);

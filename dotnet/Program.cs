@@ -15,9 +15,9 @@ namespace Internet_Status
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Ping google to test internet");
+            Console.WriteLine("Ping a big site to test internet");
             var pingHelper = new PingHelper();
-            var pingTimer = SetUpTimer(PingHelper.DoThePing, 500);
+            var pingTimer = SetUpTimer(PingHelper.DoThePing, TwoMinutes);
             var summaryTimer = SetUpTimer(PingHelper.PrintToTxt, OneHour);
 
             Console.ReadLine();
