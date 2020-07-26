@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.IO;
-using System.Net.NetworkInformation;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace Internet_Status
@@ -14,7 +9,7 @@ namespace Internet_Status
         {
             Console.WriteLine("Ping a big site to test internet");
             var pingHelper = new PingHelper();
-            var pingTimer = SetUpTimer(PingHelper.DoThePing, 60000);
+            var pingTimer = SetUpTimer(PingHelper.DoThePing, 15000);
             var summaryTimer = SetUpTimer(PingHelper.PrintToTxt, Constants.OneHour);
 
             Console.ReadLine();

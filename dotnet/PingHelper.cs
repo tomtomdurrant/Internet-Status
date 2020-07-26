@@ -37,7 +37,7 @@ namespace Internet_Status
         {
             var ip = e.Reply.Address.ToString();
             var name = Constants.IpAddresses.FirstOrDefault(x => x.Value == ip).Key;
-            
+
             Console.WriteLine($"Pinging {name} - {ip}");
             CompletedPing = DateTime.Now;
 
@@ -47,12 +47,12 @@ namespace Internet_Status
             {
                 Console.WriteLine("Ping cancelled");
             }
-            else if (e.Error != null || e.Reply.Address.ToString() == "0.0.0.0")
+            else if (e.Error != null || e.Reply.Address.ToString() == "0.0.0.0" || e.Reply.Address.ToString() == "192.168.0.1")
             {
                 var content = $"{DateTime.Now} - Internet down";
                 Console.WriteLine($"It failed at {CompletedPing}");
                 WriterHelper(Constants.InternetStatsFile, content);
-                ListOfStatus.Add(content); 
+                ListOfStatus.Add(content);
                 ListOfInternetUp.Add(false);
             }
             else
@@ -89,10 +89,11 @@ namespace Internet_Status
             ListOfStatus.Clear();
             ListOfInternetUp.Clear();
         }
-        
+
         private static void WriterHelper(string path, string content)
         {
-            using var file = new StreamWriter(path, true);
+            var folder = Constants.GetTextFolder();
+            using var file = new StreamWriter(Path.Combine(folder.FullName, path), true);
             file.WriteLine(content);
         }
     }

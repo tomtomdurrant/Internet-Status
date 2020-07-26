@@ -4,6 +4,9 @@
     <e p="C:\dev\projects\Internet-Status\dotnet" t="IncludeRecursive">
       <e p=".dockerignore" t="Include" />
       <e p="2020-07-22.txt" t="Include" />
+      <e p="2020-07-24.txt" t="Include" />
+      <e p="2020-07-25.txt" t="Include" />
+      <e p="2020-07-26.txt" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Constants.cs" t="Include" />
       <e p="docker-compose.debug.yml" t="Include" />

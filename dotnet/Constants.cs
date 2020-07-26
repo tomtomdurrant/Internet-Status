@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Internet_Status
 {
@@ -17,5 +19,12 @@ namespace Internet_Status
         };
 
         public const string InternetStatsFile = "internet-stats.txt";
+
+        private static DirectoryInfo RootDir = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent;
+
+        public static DirectoryInfo GetTextFolder()
+        {
+            return Directory.CreateDirectory(Path.Combine(RootDir.FullName, "stats"));
+        }
     }
 }
